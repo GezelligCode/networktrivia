@@ -1,10 +1,11 @@
 const app = Vue.createApp({
   data() {
     return {
+      answerShown: false,
       output: "Answer",
       data2: [
         {
-          prompt: "This is the smallest type of network",
+          prompt: "This is the smallest type of network.",
           answer: "What is a Personal Area Network (PAN)?",
           hints:
             "Examples include Bluetooth phone to Car, USB Harddrive to Computer, Firewire videocam to PC",
@@ -628,9 +629,13 @@ const app = Vue.createApp({
         },
       ],
       counter: 0,
+      progress: 0,
     };
   },
   computed: {
+    progressBar() {
+      return this.progress;
+    },
     cardOutput() {
       return this.output;
     },
@@ -665,6 +670,7 @@ const app = Vue.createApp({
       } else {
         this.counter = 0;
       }
+      this.progress = (this.counter / (this.data2.length - 1)) * 100;
     },
     prevCard() {
       if (this.counter == 0) {
@@ -672,6 +678,7 @@ const app = Vue.createApp({
       } else {
         this.counter--;
       }
+      this.progress = (this.counter / (this.data2.length - 1)) * 100;
     },
   },
 });
