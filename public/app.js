@@ -656,6 +656,7 @@ const app = Vue.createApp({
     },
     randomizeCounter() {
       this.counter = this.randomizer(0, this.data2.length - 1);
+      this.progress = (this.counter / (this.data2.length - 1)) * 100;
     },
     showAnswer() {
       if (this.output == "Answer") {
