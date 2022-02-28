@@ -650,7 +650,7 @@ const app = Vue.createApp({
       return Math.floor(Math.random() * (max - min + 1) + min);
     },
     randomizeCounter() {
-      this.counter = this.randomizer(0, this.data2.length);
+      this.counter = this.randomizer(0, this.data2.length - 1);
     },
     showAnswer() {
       if (this.output == "Answer") {
@@ -664,6 +664,13 @@ const app = Vue.createApp({
         this.counter++;
       } else {
         this.counter = 0;
+      }
+    },
+    prevCard() {
+      if (this.counter == 0) {
+        this.counter = this.data2.length - 1;
+      } else {
+        this.counter--;
       }
     },
   },

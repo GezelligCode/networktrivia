@@ -1,0 +1,22 @@
+{
+  "name": "networktrivia",
+  "description": "networktrivia This is a web application that is designed to test your knowledge of computer networking.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "build-css": "tailwindcss build src/styles.css -o public/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GezelligCode/networktrivia.git"
+  },
+  "author": "GezelligCode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GezelligCode/networktrivia/issues"
+  },
+  "homepage": "https://github.com/GezelligCode/networktrivia#readme",
+  "dependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
