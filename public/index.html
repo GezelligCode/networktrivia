@@ -4,73 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test Your Networking Knowledge!</title>
-    <link href="styles.css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://unpkg.com/vue@next"></script>
     <script src="app.js" defer></script>
+    <link href="./styles.css" rel="stylesheet" />
   </head>
-  <body id="trivia" class="text-gray-600">
-    <section id="tophalf">
-      <header>
-        <h1 class="font-bold uppercase text-center tracking-widest text-5xl">
-          Networking Trivia
-        </h1>
-      </header>
-      <section id="cards">
-        <div class="flex flex-col justify-center items-center py-10">
-          <div
-            class="max-w-sm rounded overflow-hidden shadow-lg justify-center"
-          >
-            <div class="max-w-md mx-auto bg-gray-100">
-              <p>{{ cardData2 }}</p>
-              <!-- <p>{{ counter }}</p>
-            <p>{{ progress }}</p> -->
-            </div>
-          </div>
+  <body id="trivia" class="">
+    <header>
+      <h1>Networking Trivia</h1>
+    </header>
+    <main></main>
+    <section id="cards">
+      <div
+        class="jumbotron jumbotron-fluid shadow-lg p-3 mb-5 bg-white rounded"
+      >
+        <div class="container">
+          <p>{{ cardData2 }}</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="buttons">
-        <div
-          class="flex flex-col justify-center items-center py-2 px-100 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+    <section id="buttons">
+      <center>
+        <button type="button" class="btn btn-primary" v-on:click="showAnswer">
+          {{ cardOutput }}
+        </button>
+        <button type="button" class="btn btn-secondary" v-on:click="prevCard">
+          Prev
+        </button>
+        <button type="button" class="btn btn-secondary" v-on:click="nextCard">
+          Next
+        </button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          v-on:click="randomizeCounter"
         >
-          <div class="mb-10">
-            <button
-              class="bg-blue-400 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-              v-on:click="showAnswer"
-            >
-              {{ cardOutput }}
-            </button>
-          </div>
-
-          <div class="inline-flex justify-center">
-            <button
-              class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l mt-20"
-              v-on:click="prevCard"
-            >
-              Previous
-            </button>
-            <button
-              class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
-              v-on:click="nextCard"
-            >
-              Next
-            </button>
-          </div>
-          <button
-            class="bg-yellow-500 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-            v-on:click="randomizeCounter"
-          >
-            Random
-          </button>
+          Random
+        </button>
+      </center>
+    </section>
+    <section id="progress">
+      <center>
+        <div class="progress">
+          <div id="progress-bar" :style="{width: progressBar + '%'}"></div>
         </div>
-        <div class="w-full bg-gray-200 h-1 mt-100 absolute bottom-1">
-          <div
-            class="bg-blue-600 h-1"
-            :style="{width: progressBar  + '%'}"
-          ></div>
-        </div>
-      </section>
+      </center>
     </section>
   </body>
 </html>

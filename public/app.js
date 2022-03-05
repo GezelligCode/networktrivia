@@ -633,6 +633,9 @@ const app = Vue.createApp({
     };
   },
   computed: {
+    cardCount() {
+      return this.data2.length;
+    },
     progressBar() {
       return this.progress;
     },
